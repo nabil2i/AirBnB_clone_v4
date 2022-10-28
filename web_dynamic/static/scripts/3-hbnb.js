@@ -31,7 +31,7 @@ $(document).ready( function () {
       contentType: 'application/json',
       data: JSON.stringify({}),
       success: function (data) {
-        for (const d in data) {
+        for (const d of data) {
           //creating an article
           const article = `<article>
             <div class="title_box">
