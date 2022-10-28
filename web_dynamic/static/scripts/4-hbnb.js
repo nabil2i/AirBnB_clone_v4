@@ -54,4 +54,35 @@ $(document).ready( function () {
         console.log(error);
       }
     });
+    $('.filters button').click(function () {
+      $('section.places').empty();
+      $.ajax({
+        url: places_search_url,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({amenities: Object.keys(checkedAmenities)}),
+        success: function (data) {
+          for (const d of data) {
+            //appending the article to the section
+            $('section.places').append(`<article>
+              <div class="title_box">
+                <h2>${d.name}</h2>
+                <div class="price_by_night">$${d.price_by_night}</div>
+              </div>
+              <div class="information">
+                <div class="max_guest">${d.max_guest} Guest(s)</div>
+                <div class="number_rooms">${d.number_rooms} Bedroom(s)</div>
+                <div class="number_bathrooms">${d.number_bathrooms} Bathroom(s)</div>
+              </div>
+              <div class="description">
+                ${d.description}
+              </div>
+          </article>`);
+          }
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    });
 });
