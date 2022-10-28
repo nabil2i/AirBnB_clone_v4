@@ -47,7 +47,7 @@
 							<li>
 								<!-- data-id attribute will allow us to retrieve the Amenity ID from the DOM -->
 								<!-- data-name attribute will allow us to retrieve the Amenity name from the DOM -->
-								<input type="checkbox" data-id=":amenity_id" data-name=":amenity_name">
+								<input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
 								{{ amenity.name }}
 							</li>
 						{% endfor %}
