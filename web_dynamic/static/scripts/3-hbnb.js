@@ -32,8 +32,8 @@ $(document).ready( function () {
       data: JSON.stringify({}),
       success: function (data) {
         for (const d of data) {
-          //creating an article
-          const article = `<article>
+          //appending the article to the section
+          $('section.places').append(`<article>
             <div class="title_box">
               <h2>${d.name}</h2>
               <div class="price_by_night">$${d.price_by_night}</div>
@@ -46,9 +46,7 @@ $(document).ready( function () {
             <div class="description">
               ${d.description}
             </div>
-        </article>`
-          //appending the article to the section
-          $('section.places').append(article);
+        </article>`);
         }
       }
     });
